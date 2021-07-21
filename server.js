@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const dotEnv = require('dotenv');
+const bodyParser=require('body-parser');
 const morgan=require('morgan');
 const connectDB=require('./config/db');
 const expressLayouts=require('express-ejs-layouts');
@@ -17,6 +18,10 @@ app.use(expressLayouts)
 app.set("view engine", "ejs");
 app.set("layout", "./layout/MainLayout");
 app.set("views", "views");
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
 
 app.use(express.static(path.join(__dirname, "public")))
 
