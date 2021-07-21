@@ -29,6 +29,8 @@ app.use("/", require('./routers/app'))
 app.use("/users", require('./routers/users'))
 app.use("/dashboard", require('./routers/dashboard'))
 
+app.use(require('./controllers/errorsController').get404)
+
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => console.log(`server running ${process.env.NODE_ENV} port ${PORT}`))
