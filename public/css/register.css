@@ -30,7 +30,9 @@ html {
   
   
   /* STRUCTURE */
-  
+ .form-ok{
+   display: flex;
+ } 
   .wrapper {
     display: grid;
     align-items: center;
@@ -40,6 +42,7 @@ html {
     min-height: 20%;
     padding: 20px;
   }
+  
   
   #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
@@ -260,4 +263,10 @@ html {
   #icon {
     width:60%;
   }
+
   
+@media screen and (min-width: 44px) and (max-width: 556px){
+  .form-ok{
+    display: block;
+  } 
+}
