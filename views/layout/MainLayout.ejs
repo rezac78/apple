@@ -7,8 +7,14 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <% if(path==="/login" || path==="/register"){%>
+    <% if(path==="/login"){%>
         <link rel="stylesheet" href="/css/login.css">
+    <% } %> 
+    <% if(path==="/register"){%>
+        <link rel="stylesheet" href="/css/register.css">
+    <% } %> 
+    <% if(path==="/dashboard"){%>
+        <link rel="stylesheet" href="/css/dashboard.css">
     <% } %> 
     <title>apple</title>
     <link rel="title icon" type="image/png" href="/img/download.png">
@@ -100,6 +106,9 @@
         </form>
     </section>
     <%-body-%>
+    <script src="/js/dashboard.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="/js/js.js"></script>
     <script src="/js/jquery-3.5.1.slim.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
