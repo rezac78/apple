@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
+const expressLayouts = require('express-ejs-layouts');
 const dotEnv = require('dotenv');
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -9,7 +10,6 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const connectDB = require('./config/db');
-const expressLayouts = require('express-ejs-layouts');
 
 
 dotEnv.config({ path: "./config/config.env" })
