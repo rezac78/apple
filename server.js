@@ -3,6 +3,8 @@ const express = require('express');
 const dotEnv = require('dotenv');
 const bodyParser=require('body-parser');
 const morgan=require('morgan');
+const flash=require('connect-flash');
+const session=require('express-session');
 const connectDB=require('./config/db');
 const expressLayouts=require('express-ejs-layouts');
 
@@ -21,6 +23,15 @@ app.set("views", "views");
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+
+
+app.use(session({
+    secret: process.env.SERIAL_SECRET,
+    resave: false,
+    saveUninitialized: false,
+}))
+
+app.use(flash());
 
 
 app.use(express.static(path.join(__dirname, "public")))
