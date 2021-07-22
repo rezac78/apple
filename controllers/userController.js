@@ -9,15 +9,22 @@ exports.Login = (req, res) => {
 
 exports.handleLogin = (req, res, next) => {
     passport.authenticate("local", {
-        successRedirect: "/dashboard",
         failureRedirect: "/users/login",
         failureFlash: true,
     })(req, res, next)
 };
+exports.rememberMe = (req, res) => {
+    if (req.body.remember) {
+        req.session.cookie.originalMaxAge = 24 * 60 * 60 * 1000;
+    } else {
+        req.session.cookie.expire = null;
+    }
+    res.redirect("/dashboard")
+}
 
-exports.logout=(req,res)=>{
+exports.logout = (req, res) => {
     req.logout();
-    req.flash("success_msg","lagout is success")
+    req.flash("success_msg", "lagout is success")
     res.redirect("/users/login")
 }
 exports.Register = (req, res) => {

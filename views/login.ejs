@@ -11,18 +11,24 @@
     <div class="fadeIn first">
       <span id="icon">User Login</span>
     </div>
-    <%- include("./includes/messages/loginMessageRedirect.ejs") %> 
-    <!-- Login Form -->
-    <form action="/users/login" method="POST">
-      <input type="text" id="login" class="fadeIn second" name="email" placeholder="email">
-      <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
-    </form>
+    <%- include("./includes/messages/loginMessageRedirect.ejs") %>
+      <!-- Login Form -->
+      <form action="/users/login" method="POST">
+        <input type="text" id="login" class="fadeIn second" name="email" placeholder="email">
+        <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
+        <input type="submit" class="fadeIn fourth" value="Log In">
+      </form>
+      <div class="checkbox mb-3">
+        <label>
+          RememberMe
+          <input class="mt-0" name="remember" type="checkbox" value="remember-me">
+        </label>
+      </div>
 
-    <!-- Remind Passowrd -->
-    <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
-    </div>
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
 
   </div>
 </div>

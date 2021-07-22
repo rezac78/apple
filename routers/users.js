@@ -5,7 +5,7 @@ const {authenticated}=require('../middlewares/auth');
 const router = new Router();
 
 router.get("/login",userController.Login)
-router.post("/login",userController.handleLogin)
+router.post("/login",userController.handleLogin,userController.rememberMe)
 
 router.get("/logout",authenticated,userController.logout)
 
