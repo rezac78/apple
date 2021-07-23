@@ -1,4 +1,5 @@
 const path = require('path');
+const debug= require('debug')("project-booking");
 const express = require('express');
 const mongoose = require('mongoose');
 const expressLayouts = require('express-ejs-layouts');
@@ -14,10 +15,12 @@ const connectDB = require('./config/db');
 
 dotEnv.config({ path: "./config/config.env" })
 connectDB()
+debug("Connected To Database")
 require('./config/passport');
 const app = express();
 
 if (process.env.NODE_ENV == "development") {
+    debug("Morgan Enabale")
     app.use(morgan("dev"))
 }
 app.use(expressLayouts)

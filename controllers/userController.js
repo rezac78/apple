@@ -15,12 +15,13 @@ exports.handleLogin = (req, res, next) => {
 };
 exports.rememberMe = (req, res) => {
     if (req.body.remember) {
-        req.session.cookie.originalMaxAge = 24 * 60 * 60 * 1000;
+        req.session.cookie.originalMaxAge = 24 * 60 * 60 * 1000
     } else {
         req.session.cookie.expire = null;
     }
     res.redirect("/dashboard")
 }
+
 
 exports.logout = (req, res) => {
     req.logout();

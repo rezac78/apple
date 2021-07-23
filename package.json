@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production  node server",
-    "dev": "cross-env NODE_ENV=development  nodemon server"
+    "dev": "cross-env NODE_ENV=development DEBUG=project-booking  nodemon server"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,7 @@
     "connect-flash": "^0.1.1",
     "connect-mongo": "^3.2.0",
     "cross-env": "^7.0.3",
+    "debug": "^2.6.9",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
@@ -25,6 +26,7 @@
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
+    "winston": "^3.3.3",
     "yup": "^0.32.9"
   }
 }
