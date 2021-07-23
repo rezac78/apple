@@ -1,5 +1,5 @@
 const path = require('path');
-const debug= require('debug')("project-booking");
+const debug = require('debug')("project-booking");
 const express = require('express');
 const mongoose = require('mongoose');
 const expressLayouts = require('express-ejs-layouts');
@@ -11,6 +11,7 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const connectDB = require('./config/db');
+const winston = require('./config/winston');
 
 
 dotEnv.config({ path: "./config/config.env" })
@@ -21,7 +22,7 @@ const app = express();
 
 if (process.env.NODE_ENV == "development") {
     debug("Morgan Enabale")
-    app.use(morgan("dev"))
+    app.use(morgan("combined", { stream: winston.stream }))
 }
 app.use(expressLayouts)
 app.set("view engine", "ejs");
