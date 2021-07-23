@@ -8,10 +8,14 @@ exports.Login = (req, res) => {
 }
 
 exports.handleLogin = (req, res, next) => {
+    if(!req.body["g-recaptcha-response"]){
+        req.flash("error","اعتبار سنجی captcha  الزامی است");
+        return res.redirect("/users/login")
+    }
     passport.authenticate("local", {
         failureRedirect: "/users/login",
         failureFlash: true,
-    })(req, res, next)
+    })(req, res, next);
 };
 exports.rememberMe = (req, res) => {
     if (req.body.remember) {
