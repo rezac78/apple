@@ -1,5 +1,6 @@
 const bcrypt = require('bcryptjs');
 const passport = require("passport")
+const fetch = require('node-fetch');
 
 const User = require('../models/User');
 
@@ -7,16 +8,12 @@ exports.Login = (req, res) => {
     res.render("login", { pageTitle: "login", path: "/login", message: req.flash("success_msg"), error: req.flash("error") })
 }
 
-exports.handleLogin = (req, res, next) => {
-    if(!req.body["g-recaptcha-response"]){
-        req.flash("error","اعتبار سنجی captcha  الزامی است");
-        return res.redirect("/users/login")
-    }
+exports.handleLogin = async (req, res, next) => {
     passport.authenticate("local", {
         failureRedirect: "/users/login",
-        failureFlash: true,
+        failureFlash: true
     })(req, res, next);
-};
+}
 exports.rememberMe = (req, res) => {
     if (req.body.remember) {
         req.session.cookie.originalMaxAge = 24 * 60 * 60 * 1000

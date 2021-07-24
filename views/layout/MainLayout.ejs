@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <% if(path==="/login"){%>
         <link rel="stylesheet" href="/css/login.css">
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <% } %> 
     <% if(path==="/register"){%>
         <link rel="stylesheet" href="/css/register.css">
@@ -72,12 +71,12 @@
                         <hr>
                         <div class="stateOne">
                             <i class="fas fa-sign-out-alt"></i>
-                            <span style="cursor: pointer;"  id="LOGIN">LOGIN</span>
+                            <span style="cursor: pointer;"  id="LOGIN"><a href="/users/login">LOGIN</a></span>
                         </div>
                         <hr>
                         <div class="stateOne">
                             <i class="fas fa-registered"></i>
-                            <span style="cursor: pointer;" id="REGISTER">REGISTER</span>
+                            <span style="cursor: pointer;" id="REGISTER"><a href="/users/register">REGISTER</a></span>
                         </div>
                     </div>
                 </li>
